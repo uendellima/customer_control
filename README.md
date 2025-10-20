@@ -32,9 +32,7 @@ cd customer_control
 ### 2. Instale as dependências
 
 ```bash
-cd frontend/customer_control
-npm install
-cd ../../backend
+cd backend
 npm install
 ```
 
@@ -56,4 +54,12 @@ npx prisma generate
 
 ```bash
 node src/server.js
+```
+
+### 6. Inicie o site
+
+```bash
+cd ../frontend/customer_control
+npm install
+npm start
 ```
