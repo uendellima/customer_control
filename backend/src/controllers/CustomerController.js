@@ -1,16 +1,16 @@
 import prisma from "../prisma/PrismaClient.js";
 
 export const createCustomer = async (req, res) => {
-  const { nome } = req.body;
+  const { name } = req.body;
   try {
     const customer = await prisma.customer.create({
       data: {
-        nome,
-        createdAt: createdAt ? new Date(createdAt) : undefined,
+        name,
       },
     });
     res.status(201).json(customer);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Failure to create customer" });
   }
 };

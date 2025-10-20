@@ -1,8 +1,8 @@
 import prisma from "../prisma/PrismaClient.js";
 
 export const createContact = async (req, res) => {
-  const { nome, email, telefone, customerId } = req.body;
-  if (!nome || !email || !telefone || !customerId) {
+  const { name, email, phone, customerId } = req.body;
+  if (!name || !email || !phone || !customerId) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
@@ -15,7 +15,7 @@ export const createContact = async (req, res) => {
     }
 
     const contact = await prisma.contato.create({
-      data: { nome, email, telefone, customerId: Number(customerId) },
+      data: { name, email, phone, customerId: Number(customerId) },
     });
     res.status(201).json(contact);
   } catch (error) {
@@ -58,11 +58,11 @@ export const deleteContact = async (req, res) => {
 
 export const updateContact = async (req, res) => {
   const { id } = req.params;
-  const { nome, email, telefone } = req.body;
+  const { name, email, phone } = req.body;
   try {
     const contact = await prisma.contato.update({
       where: { id: Number(id) },
-      data: { nome, email, telefone },
+      data: { name, email, phone },
     });
     res.status(200).json(contact);
   } catch (error) {
