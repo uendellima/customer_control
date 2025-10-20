@@ -25,13 +25,16 @@ Este projeto é uma aplicação web Fullstack que permite cadastrar **clientes**
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio/backend
+git clone https://github.com/uendellima/customer_control.git
+cd customer_control
 ```
 
 ### 2. Instale as dependências
 
 ```bash
+cd frontend/customer_control
+npm install
+cd ../../backend
 npm install
 ```
 
