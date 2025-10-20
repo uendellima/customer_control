@@ -63,3 +63,17 @@ cd ../frontend/customer_control
 npm install
 npm start
 ```
+
+## 📚 Documentação da API
+
+A documentação completa da API está disponível através do Swagger UI. Após iniciar o servidor, acesse:
+
+```
+http://localhost:3001/api-docs
+```
+
+A documentação interativa permite:
+- Visualizar todos os endpoints disponíveis
+- Ver os schemas de requisição e resposta
+- Testar os endpoints diretamente pela interface
+- Verificar códigos de status HTTP e possíveis erros
