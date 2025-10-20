@@ -1,11 +1,13 @@
 import prisma from "../prisma/PrismaClient.js";
 
 export const createCustomer = async (req, res) => {
-  const { name } = req.body;
+  const { name, email, phone } = req.body;
   try {
     const customer = await prisma.customer.create({
       data: {
         name,
+        email,
+        phone,
       },
     });
     res.status(201).json(customer);
@@ -45,12 +47,14 @@ export const getCustomerById = async (req, res) => {
 
 export const updateCustomer = async (req, res) => {
   const { id } = req.params;
-  const { nome } = req.body;
+  const { name, email, phone } = req.body;
   try {
     const customer = await prisma.customer.update({
       where: { id: Number(id) },
       data: {
-        nome,
+        name,
+        email,
+        phone,
       },
     });
     res.status(200).json(customer);
