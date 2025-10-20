@@ -14,7 +14,7 @@ export const createContact = async (req, res) => {
       return res.status(404).json({ error: "Customer not found" });
     }
 
-    const contact = await prisma.contato.create({
+    const contact = await prisma.contact.create({
       data: { name, email, phone, customerId: Number(customerId) },
     });
     res.status(201).json(contact);
@@ -27,7 +27,7 @@ export const createContact = async (req, res) => {
 export const listContacts = async (req, res) => {
   const { customerId } = req.params;
   try {
-    const contacts = await prisma.contato.findMany({
+    const contacts = await prisma.contact.findMany({
       where: { customerId: Number(customerId) },
     });
     res.status(200).json(contacts);
@@ -40,7 +40,7 @@ export const listContacts = async (req, res) => {
 export const deleteContact = async (req, res) => {
   const { id } = req.params;
   try {
-    await prisma.contato.delete({
+    await prisma.contact.delete({
       where: { id: Number(id) },
     });
     res.status(204).send();
@@ -60,7 +60,7 @@ export const updateContact = async (req, res) => {
   const { id } = req.params;
   const { name, email, phone } = req.body;
   try {
-    const contact = await prisma.contato.update({
+    const contact = await prisma.contact.update({
       where: { id: Number(id) },
       data: { name, email, phone },
     });
@@ -80,7 +80,7 @@ export const updateContact = async (req, res) => {
 export const getContactById = async (req, res) => {
   const { id } = req.params;
   try {
-    const contact = await prisma.contato.findUnique({
+    const contact = await prisma.contact.findUnique({
       where: { id: Number(id) },
     });
     if (contact) {
