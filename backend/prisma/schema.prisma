@@ -13,18 +13,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Cliente {
+model Customer {
   id           Int       @id @default(autoincrement())
-  nome         String
-  dataRegistro DateTime  @default(now())
-  contatos     Contato[]
+  name         String
+  createdAt DateTime  @default(now())
+  contacts     Contact[]
 }
 
-model Contato {
+model Contact {
   id        Int      @id @default(autoincrement())
-  nome      String
+  name      String
   email     String?
-  telefone  String?
-  clienteId Int
-  cliente   Cliente @relation(fields: [clienteId], references: [id])
+  phone  String?
+  customerId Int
+  customer   Customer @relation(fields: [customerId], references: [id])
 }
