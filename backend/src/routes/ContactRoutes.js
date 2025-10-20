@@ -10,7 +10,7 @@ import {
 const router = express.Router();
 
 router.post("/contacts", createContact);
-router.get("/contacts/:clientId", listContacts);
+router.get("/contacts/:customerId", listContacts);
 router.delete("/contacts/:id", deleteContact);
 router.put("/contacts/:id", updateContact);
 router.get("/contacts/:id", getContactById);
